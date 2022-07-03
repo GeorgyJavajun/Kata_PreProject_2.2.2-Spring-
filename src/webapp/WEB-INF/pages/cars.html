@@ -1,12 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Cars</title>
+    <style>
+        table, th, td {border: 1px solid black;}
+    </style>
 </head>
 <body>
-
-<h2>Hello! This message means you on right way!</h2>
-
+    <h1>Auto</h1>
+  <table>
+    <thead>
+    <tr>
+          <th>ID</th>
+          <th>Model</th>
+          <th>Price</th>
+          <th>Year</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr th:each="auto, iterStat : ${cars}">
+            <td th:text="${iterStat.index}+1"></td>
+            <td th:text="${auto.model + ' '}"></td>
+            <td th:text="${'$' + auto.price + ' '}"></td>
+            <td th:text="${auto.year}"></td>
+        </tr>
+    </tbody>
+</table>
 </body>
 </html>
